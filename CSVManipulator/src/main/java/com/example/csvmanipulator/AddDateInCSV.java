@@ -168,12 +168,19 @@ public class AddDateInCSV
     
     //Validating column list
     private static boolean validateHeader(String[] headerFromFile){
-        return Arrays.equals(headerFromFile, expectedColumns);
+        int index=0;
+        for (String item : headerFromFile){
+            if (!item.trim().equals(expectedColumns[index])){
+                return false;
+            }
+            index++;
+        }
+        return true;
     }
     
     //Validating row data
     private static boolean validateRow(String[] row){
-        return row.length == expectedColumns.length && row[0] != null && row[0].length() > 0;
+        return row.length == expectedColumns.length && row[0].trim().length() > 0;
     }
     
     //Adding required date to row data
