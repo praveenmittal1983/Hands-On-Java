@@ -155,11 +155,11 @@ public class AddDateInCSV
 
     //Convert to required date format (DD/MM/YYYY)
     private static String formatDate(String inputString){
-        SimpleDateFormat acutalFormat = new SimpleDateFormat("yyyyddMM");
-        SimpleDateFormat requiredFormat = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat actualFormat = new SimpleDateFormat("yyyyMMdd");
+        SimpleDateFormat requiredFormat = new SimpleDateFormat("MM/dd/yyyy");
         
         try {
-            return requiredFormat.format(acutalFormat.parse(inputString));
+            return requiredFormat.format(actualFormat.parse(inputString));
         } catch (Exception ex) {
             LOG.error("Failed while converting date [" + inputString + "] to required format " + ex);
         }
