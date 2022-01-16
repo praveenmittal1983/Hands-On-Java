@@ -192,7 +192,7 @@ public class AddDateInCSV
     //Writing data to output file
     private static void writeToFile(String fileName, List<String[]> allRows) throws IOException 
     {
-        try (CSVWriter writer = new CSVWriter(new FileWriter(fileName))) 
+        try (CSVWriter writer = new CSVWriter(new FileWriter(fileName),',',CSVWriter.NO_QUOTE_CHARACTER)) 
         {
             //Writing Records
             for (String[] row : allRows) 
